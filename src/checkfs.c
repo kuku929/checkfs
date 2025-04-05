@@ -96,11 +96,11 @@ void fs_check(int fd, const struct disk_super_block *dsb)
  */
 int sb_check(const struct disk_super_block *dsb)
 {
-	if( dsb->magic1 != SUPER_BLOCK_MAGIC1									||
+	if( dsb->magic1 != SUPER_BLOCK_MAGIC1										||
 		dsb->magic2 != SUPER_BLOCK_MAGIC2									||
 		dsb->magic3 != SUPER_BLOCK_MAGIC3									||
-		(dsb->block_size != (1<<(dsb->block_shift)))						||
-		(dsb->blocks_per_ag << (dsb->block_shift + 3)!= (1<<dsb->ag_shift))	||
+		(dsb->block_size != (1<<(dsb->block_shift)))								||
+		(dsb->blocks_per_ag << (dsb->block_shift + 3)!= (1<<dsb->ag_shift))			||
 		(dsb->flags == SUPER_BLOCK_DISK_DIRTY)								||
 		(dsb->flags != SUPER_BLOCK_DISK_CLEAN)
 	)
