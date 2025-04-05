@@ -8,7 +8,7 @@ determine if the filesystem is corrupted.
 
 Clone this repo in a directory and run the following command in the terminal.
 ```bash
-cd <work-dir>
+cd <checkfs-dir>
 make
 ```
 
