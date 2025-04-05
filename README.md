@@ -1,23 +1,22 @@
-# checkfs: a filesystem check tool for OpenBFS
+# checkfs: A filesystem check tool for OpenBFS
 
-This tool performs sanity checks on a OpenBFS partition and is 
-developed for FreeBSD.
+This tool performs sanity checks on an OpenBFS partition and is 
+developed for FreeBSD. As of now, only the superblock is read to
+determine if the filesystem is corrupted.
 
 ## Building
 
-clone this repo in a directory. and run the following command in the terminal.
+Clone this repo in a directory and run the following command in the terminal.
 ```bash
 cd <work-dir>
 make
 ```
 
 ## Running
-sudo access is required to open the partition. The partition name may
-look something like /dev/ndaXpY if it is in disk or /dev/daXpsY if it is
-in a usb flash drive.
+The partition name may look something like /dev/ndaXpY if it is in disk or /dev/daXpsY if it is in a usb flash drive.
 ```bash
 $ sudo ./checkfs <name-of-partition>
 ```
 ## TODO
-[] fill in the inode_check() function.
-[] add journal replay
+1. [] fill in the inode_check() function.
+2. [] add journal replay
