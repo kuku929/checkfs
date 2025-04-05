@@ -24,25 +24,18 @@ void sb_dump_info(const struct disk_super_block *dsb)
 	printf("%-20s %d\n", "byte order", dsb->fs_byte_order);
 	// block_size;
 	printf("%-20s %d\n", "block size", dsb->block_size);
-
 	// num_blocks;
 	printf("%-20s %ld\n", "number of blocks", dsb->num_blocks);
-
 	// block_shift;
 	printf("%-20s %d\n", "block shift", dsb->block_shift);
-
 	// used_blocks;
 	printf("%-20s %ld\n", "used blocks", dsb->used_blocks);
-
 	// inode size;
 	printf("%-20s %d\n", "inode size", dsb->inode_size);
-
 	// blocks_per_ag;
 	printf("%-20s %d\n", "blocks per ag", dsb->blocks_per_ag);
-
 	// ag_shift;
 	printf("%-20s %d\n", "allocation shift", dsb->ag_shift);
-
 	// num_ags;
 	printf("%-20s %d\n", "number of ag", dsb->num_ags);
 }
@@ -103,12 +96,12 @@ void fs_check(int fd, const struct disk_super_block *dsb)
  */
 int sb_check(const struct disk_super_block *dsb)
 {
-	if( dsb->magic1 != SUPER_BLOCK_MAGIC1  									|| 
-		dsb->magic2 != SUPER_BLOCK_MAGIC2 									||
-		dsb->magic3 != SUPER_BLOCK_MAGIC3 									||
-		(dsb->block_size != (1<<(dsb->block_shift))) 						|| 
-		(dsb->blocks_per_ag << (dsb->block_shift + 3)!= (1<<dsb->ag_shift)) ||
-		(dsb->flags == SUPER_BLOCK_DISK_DIRTY) 								||
+	if( dsb->magic1 != SUPER_BLOCK_MAGIC1									||
+		dsb->magic2 != SUPER_BLOCK_MAGIC2									||
+		dsb->magic3 != SUPER_BLOCK_MAGIC3									||
+		(dsb->block_size != (1<<(dsb->block_shift)))						||
+		(dsb->blocks_per_ag << (dsb->block_shift + 3)!= (1<<dsb->ag_shift))	||
+		(dsb->flags == SUPER_BLOCK_DISK_DIRTY)								||
 		(dsb->flags != SUPER_BLOCK_DISK_CLEAN)
 	)
 	{
